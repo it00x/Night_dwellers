@@ -25,6 +25,7 @@ def assign_Devices(myIP):
     splitIP = myIP.split(".")
     fixedIP = splitIP[0]+"."+splitIP[1]+"."+splitIP[2]+"."
     for ip in range(1,11):
+        print(ip)
         addr = fixedIP + str(ip)
         if (scan_IP(addr)):
             print(addr+" is live")
