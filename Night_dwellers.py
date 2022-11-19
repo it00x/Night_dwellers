@@ -3,7 +3,7 @@ from time import time
 import csv
 import os
 from platform import system
-
+import random
 def nory(usr_input):
     NORY=["Y","T","TAK","YES"]
     if usr_input in NORY:
@@ -27,16 +27,24 @@ def create_DB_by_scanning():
             if out_test[-1]!=".":
                 New_DB.append(test_IP+" ; "+"Unknown type")
     return New_DB
+def check_netmask(database):
+    if len(database) == 1:
+        return 0
+    tempa = len(database)/10+2
+    tempList = []
+
 
 def find_file_locally(is_txt):
     #checking file type
     if is_txt==True:
         print("choosing a .txt file")
+        #check if there is .txt at end of path and adds it if it's absent
         filepath=str(input("input file path/name if the path is in the project folder>>"))
         if filepath[-4:-1]!=".txt" or filepath[-1]=="/" or filepath[-1]=="\\" :
             filepath.append(".txt")
     else:
         print("choosing a .csv file")
+                #check if there is .csv at end of path and adds it if it's absent
         filepath=str(input("input file path/name if the path is in the project folder>>"))
         if filepath[-4:-1]!=".csv" or filepath[-1]=="/" or filepath[-1]=="\\" :
             filepath.append(".csv")
@@ -50,11 +58,13 @@ def download_existing_DB():
             with open(filepath,newline='') as csvfile:
                 my_DB = csv.reader(csvfile, delimiter=' ', quotechar='|')
         else:
+            #finds the file if it's not a local database
             filepath=find_file_locally(True)
             with open(filepath, "r") as f:
                 my_DB=f.readlines()
             print(my_DB)
     else:
+        #asks the user to migrate the database to the device using newly opened terminal window
         print("use an ftp or sftp connection to transfer the DataBase to this device")
         if system()=="Windows":
             os.command("start cmd.exe")
