@@ -35,9 +35,40 @@ def assign_Devices(My_hostname):
             print(a)
     except:
         print("error")
+    #socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    #socket.bind((host, port))
+    #socket.listen(max_connections)
+    #try:
+    #while True:
+    #    connected_socket, addr = socket.accept()
+    #    New_DB.update({addr,connected_socket})
+    pass
+
+def find_file_locally(is_txt):
+    if is_txt==True:
+        print("choosing a .txt file")
+                filepath=str(input("input file path/name if the path is in the project folder>>"))
+                if filepath[-4:-1]!=".txt" or filepath[-1]=="/" or filepath[-1]=="\\" :
+                    filepath.append(".txt")
+    else:
+        print("choosing a .csv file")
+                filepath=str(input("input file path/name if the path is in the project folder>>"))
+                if filepath[-4:-1]!=".csv" or filepath[-1]=="/" or filepath[-1]=="\\" :
+                    filepath.append(".csv")
 
 def download_existing_DB():
-    pass
+    if(nory(input("is the DataBase located locally on this device (Y/n)>>"))==True):
+        # import DB from local file
+        if nory(input("is your file .csv (Y/n)>>"))==True:
+            #open a .csv DB_file
+            filepath=find_file_locally(False)
+
+        else:
+            filepath=find_file_locally(True)
+
+    else:
+        #import DB from a server
+        pass
 
 def main():
     start_time = time()
