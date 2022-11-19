@@ -20,22 +20,23 @@ def create_DB_by_scanning():
     return New_DB
 
 def assign_Devices(myIP):
-    #splitIP = myIP.split(".")
-    #fixedIP = splitIP[0]+"."+splitIP[1]+"."+splitIP[2]+"."
-    #for ip in range(1,11):
-    #    addr = fixedIP + str(ip)
-    #    if (scan_IP(addr)):
-    #        print (addr , "is live")
+    splitIP = myIP.split(".")
+    fixedIP = splitIP[0]+"."+splitIP[1]+"."+splitIP[2]+"."
+    for ip in range(0,11):
+        print(ip)
+        addr = fixedIP + str(ip)
+        if (scan_IP(addr)):
+            print(addr+"is live")
     pass
 
 def scan_IP(addr):
-    #sockets = socket(AF_INET,SOCK_STREAM)
-    ##socket.settimeout(1)
-    #result = sockets.connect_ex((addr,135))
-    #if result == 0:
-    #    return 1
-    #else:
-    #    return 0
+    sockets = socket(AF_INET,SOCK_STREAM)
+    sockets.settimeout(1.0)
+    result = sockets.connect_ex((addr,135))
+    if result == 0:
+        return 1
+    else:
+        return 0
     pass
 
 def find_file_locally(is_txt):
