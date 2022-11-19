@@ -25,12 +25,15 @@ def assign_Devices(My_hostname):
     #sockets = socket.socket()
     sockets.bind((My_hostname, port))
     sockets.listen()
+    print(sockets)
     try:
         print("I am tryin")
         while True:
             print("dupa")
-            (connected_socket,addr) = sockets.accept()
-            New_DB.update({addr,connected_socket})
+            #(connected_socket,addr) = sockets.accept()
+            #print(sockets.accept())
+            socket.create_connection((str(My_hostname)+":"+str(port)),)
+            #New_DB.update({addr,connected_socket})
             clientConnection.close()
             print(a)
     except:
