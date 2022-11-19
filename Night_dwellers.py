@@ -15,18 +15,26 @@ def create_DB_by_scanning():
     myIP=gethostbyname(My_hostname)
     #create a DataBase to be filled with connected IoT Devices
     New_DB ={myIP:"my device"}
+    assign_Devices(My_hostname)
     return New_DB
 
 def assign_Devices(My_hostname):
-    #socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    #socket.bind((host, port))
-    #socket.listen(max_connections)
-    #try:
-    #while True:
-    #    connected_socket, addr = socket.accept()
-    #    New_DB.update({addr,connected_socket})
-    pass
-    pass
+    port = 1000
+    sockets = socket(AF_INET,SOCK_STREAM)
+    print(sockets)
+    #sockets = socket.socket()
+    sockets.bind((My_hostname, port))
+    sockets.listen()
+    try:
+        print("I am tryin")
+        while True:
+            print("dupa")
+            (connected_socket,addr) = sockets.accept()
+            New_DB.update({addr,connected_socket})
+            clientConnection.close()
+            print(a)
+    except:
+        print("error")
 
 def download_existing_DB():
     pass
@@ -42,7 +50,6 @@ def main():
         # create new by scaning network
         DB_of_IoT=create_DB_by_scanning()
     print(DB_of_IoT)
-    
     # writes code execution time
     print((time()-start_time))
 
