@@ -1,8 +1,8 @@
 # Night_dwellers
 IoT project
 connection optimisation
-1. nauczyc Kube jak działa github
-2. uruchomic git na VS2019
+1. check if git is working and run push/pull tests
+2. Write license
 3. write code plan
 4. write system requirements
 5. add required libraries
