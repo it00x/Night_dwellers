@@ -37,7 +37,7 @@ def find_file_locally(is_txt):
         print("choosing a .csv file")
         filepath=str(input("input file path/name if the path is in the project folder>>"))
         if filepath[-4:-1]!=".csv" or filepath[-1]=="/" or filepath[-1]=="\\" :
-            ilepath.append(".csv")
+            filepath.append(".csv")
 
 def download_existing_DB():
     if(nory(input("is the DataBase located locally on this device (Y/n)>>"))==True):
