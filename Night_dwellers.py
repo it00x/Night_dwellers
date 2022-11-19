@@ -62,7 +62,7 @@ def download_existing_DB():
             filepath=find_file_locally(True)
             with open(filepath, "r") as f:
                 my_DB=f.readlines()
-            print(my_DB)
+        return(my_DB)
     else:
         #asks the user to migrate the database to the device using newly opened terminal window
         print("use an ftp or sftp connection to transfer the DataBase to this device")
