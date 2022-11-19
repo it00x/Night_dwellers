@@ -3,6 +3,9 @@ from time import time
 import csv
 import os
 from platform import system
+#test parsing
+import json
+import pingparsing
 
 def nory(usr_input):
     NORY=["Y","T","TAK","YES"]
@@ -10,6 +13,16 @@ def nory(usr_input):
         return True
     else: return False
 
+def test_parsing(My_IP):
+    splitIP = myIP.split(".")
+    fixedIP = splitIP[0]+"."+splitIP[1]+"."+splitIP[2]+"."
+    ping_parser = pingparsing.PingParsing()
+    transmitter = pingparsing.PingTransmitter()
+    for ip in range(0,255):
+        transmitter.destination = fixedIP+":"+ip
+        transmitter.count = 10
+        result = transmitter.ping()
+        print(json.dumps(ping_parser.parse(result).as_dict(), indent=4))
 
 def create_DB_by_scanning():
     #find my Hostname
@@ -17,18 +30,22 @@ def create_DB_by_scanning():
     # gets host ip and assigns it to variable
     myIP=gethostbyname(My_hostname)
     #create a DataBase to be filled with connected IoT Devices
-    New_DB ={myIP:"my device"}
-    assign_Devices(myIP)
+    New_DB ={myIP:"my device"}  
+    #assign_Devices(myIP)
+    test_parsing(My_IP)
     return New_DB
 
 def assign_Devices(myIP):
+    #convert ip to ip for iteration
     splitIP = myIP.split(".")
     fixedIP = splitIP[0]+"."+splitIP[1]+"."+splitIP[2]+"."
+    #check os
     if system() == "Windows":
         ping1 = "ping -n 1"
         print(ping1)
     else:
         ping1 = "ping -c 1"
+    #pings ip in range xxx.xxx.xxx.0-255
     for ip in range (0,255):
         addr = fixedIP + str(ip)
         comm = ping1 +" "+ addr
