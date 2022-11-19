@@ -30,6 +30,7 @@ def assign_Devices(My_hostname):
 
 def download_existing_DB():
     pass
+    pass
 
 def main():
     start_time = time()
