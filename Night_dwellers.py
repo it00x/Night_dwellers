@@ -27,8 +27,6 @@ def create_DB_by_scanning():
             if out_test[-1]!=".":
                 New_DB.append(test_IP+" ; "+"Unknown type")
 
-
-
 def find_file_locally(is_txt):
     #checking file type
     if is_txt==True:
