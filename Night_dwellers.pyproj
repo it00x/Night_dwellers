@@ -11,6 +11,10 @@
     <OutputPath>.</OutputPath>
     <Name>Night_dwellers</Name>
     <RootNamespace>Night_dwellers</RootNamespace>
+    <TestFramework>pytest</TestFramework>
+    <UnitTestPattern>test*.py</UnitTestPattern>
+    <UnitTestRootDirectory>.</UnitTestRootDirectory>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
