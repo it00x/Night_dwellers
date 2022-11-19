@@ -1,5 +1,6 @@
 from socket import *
 from time import time
+import csv
 
 def nory(usr_input):
     NORY=["Y","T","TAK","YES"]
@@ -55,10 +56,13 @@ def download_existing_DB():
         if nory(input("is your file .csv (Y/n)>>"))==True:
             #open a .csv DB_file
             filepath=find_file_locally(False)
-
+            with open(filepath,newline='') as csvfile:
+                my_DB = csv.reader(csvfile, delimiter=' ', quotechar='|')
         else:
             filepath=find_file_locally(True)
-
+            with open(filepath, "r") as f:
+                my_DB=f.readlines()
+            print(my_DB)
     else:
         #import DB from a server
         pass
