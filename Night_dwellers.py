@@ -39,17 +39,16 @@ def assign_Devices(myIP):
     #convert ip to ip for iteration
     splitIP = myIP.split(".")
     fixedIP = splitIP[0]+"."+splitIP[1]+"."+splitIP[2]+"."
+    scan_IP(fixedIP)
     #check os
     if system() == "Windows":
         ping1 = "ping -n 1"
-        print(ping1)
     else:
         ping1 = "ping -c 1"
     #pings ip in range xxx.xxx.xxx.0-255
     for ip in range (0,255):
         addr = fixedIP + str(ip)
-        comm = ping1 +" "+ addr
-        print(comm)
+        comm = ping1 + addr
         response = os.popen(comm)
         for line in response.readlines():
             if(line.count("TTL")):
