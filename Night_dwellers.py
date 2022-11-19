@@ -35,13 +35,6 @@ def assign_Devices(My_hostname):
             print(a)
     except:
         print("error")
-    #socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    #socket.bind((host, port))
-    #socket.listen(max_connections)
-    #try:
-    #while True:
-    #    connected_socket, addr = socket.accept()
-    #    New_DB.update({addr,connected_socket})
     pass
 
 def find_file_locally(is_txt):
