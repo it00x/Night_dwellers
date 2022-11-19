@@ -1,8 +1,8 @@
 # Night_dwellers
 IoT project
 connection optimisation
-1. check if git is working and run push/pull tests
-2. Write license
+1. check if git is working and run push/pull tests (X)
+2. Write license (X)
 3. write code plan
 4. write system requirements
 5. add required libraries
