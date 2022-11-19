@@ -38,24 +38,31 @@ def check_netmask(database):
     #2= 255.255.0.0
     #3= 255.0.0.0
     #4= 0.0.0.0
+    #check database length before checking mask
     if len(database) == 1:
         return 0
+    #gets a number of keys to check
     tempa = len(database)/10+2
+    #create temporary lists for keys and their indexes that are randomly chosen
     tempList = []
     tempKeyList = []
     tempKeys = []
     gotmask=False
+    #generate random indexes of keys
     for i in range(0,tempa):
         tempRandom = random.randrange(0,tempa)
         if tempRandom in tempList:
             i-=1
         else:
             tempList.append(tempRandom)
+    #create a list with ips
     for j in tempList:
         tempKeyList.append(database[j])
+    #split ips into iterable parts to check mask type
     for key in tempKeyList:
         tempKey = key.split(".")
         tempKeys.append(tempKey)
+    #compare ip segments  to get mask type
     for k in range(3,0,-1):
         for l in range(0,len(tempKeys),1):
             if tempKeys[k][l]!=tempKeys[k][l+1]:
