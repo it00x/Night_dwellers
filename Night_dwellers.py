@@ -17,14 +17,14 @@ def create_DB_by_scanning():
     New_DB ={myIP:"my device"}
     return New_DB
 def assign_Devices(My_hostname):
-#    socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#    socket.bind((host, port))
-#    socket.listen(max_connections)
-#    try:
+    #socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    #socket.bind((host, port))
+    #socket.listen(max_connections)
+    #try:
     #while True:
-     #   connected_socket, addr = socket.accept()
-     #New_DB.update({addr,connected_socket})
-     pass
+    #    connected_socket, addr = socket.accept()
+    #    New_DB.update({addr,connected_socket})
+    pass
 
 
 
