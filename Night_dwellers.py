@@ -32,6 +32,8 @@ def check_netmask(database):
         return 0
     tempa = len(database)/10+2
     tempList = []
+    for i in range(0,tempa-1):
+        pass
 
 
 def find_file_locally(is_txt):
