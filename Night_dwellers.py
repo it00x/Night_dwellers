@@ -24,7 +24,7 @@ def create_DB_by_scanning():
 def assign_Devices(myIP):
     splitIP = myIP.split(".")
     fixedIP = splitIP[0]+"."+splitIP[1]+"."+splitIP[2]+"."
-    for ip in range(1,11):
+    for ip in range(1,255):
         print(ip)
         addr = fixedIP + str(ip)
         if (scan_IP(addr)):
@@ -33,7 +33,7 @@ def assign_Devices(myIP):
 
 def scan_IP(addr):
     sockets = socket(AF_INET,SOCK_STREAM)
-    sockets.settimeout(0.5)
+    sockets.settimeout(0.25)
     result = sockets.connect_ex((addr,135))
     if result == 0:
         return 1
