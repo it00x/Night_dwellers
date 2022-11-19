@@ -30,7 +30,7 @@ def assign_Devices(myIP):
 
 def scan_IP(addr):
     #sockets = socket(AF_INET,SOCK_STREAM)
-    ##socket.setdefaulttimeout(1)
+    ##socket.settimeout(1)
     #result = sockets.connect_ex((addr,135))
     #if result == 0:
     #    return 1
