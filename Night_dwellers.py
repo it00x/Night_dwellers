@@ -1,8 +1,8 @@
-import nmap
-nmScan = nmap.PortScanner()
+import socket
 
 def main():
-    myIP = nmScan.all_hosts()
+    My_hostname=socket.gethostname()
+    myIP=socket.gethostbyname(My_hostname)
     print(myIP)
 
 if __name__=="__main__":
