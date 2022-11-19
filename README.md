@@ -1,4 +1,4 @@
 # Night_dwellers
 IoT project
 connection optimisation
-[] nauczyc Kube jak działa github
+1. nauczyc Kube jak działa github
