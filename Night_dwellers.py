@@ -26,6 +26,7 @@ def create_DB_by_scanning():
             out_test=os.command("ping -n {}".format(test_IP))
             if out_test[-1]!=".":
                 New_DB.append(test_IP+" ; "+"Unknown type")
+    return New_DB
 
 def find_file_locally(is_txt):
     #checking file type
@@ -54,13 +55,17 @@ def download_existing_DB():
                 my_DB=f.readlines()
             print(my_DB)
     else:
-        #import DB from a server
-        pass
+        print("use an ftp or sftp connection to transfer the DataBase to this device")
+        if system()=="Windows":
+            os.command("start cmd.exe")
+        else:
+            os.command("gnome-terminal")
+        download_existing_DB()
 
 def main():
     start_time = time()
     if(nory(input("is there an existing dataBase of you IoT devices in this network (Y/n)>>"))==True):
-        pass #there is an existing data base
+        #there is an existing data base
         #download a new DB
         DB_of_IoT=download_existing_DB()
     else:
