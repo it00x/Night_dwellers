@@ -27,7 +27,14 @@ def create_DB_by_scanning():
             if out_test[-1]!=".":
                 New_DB.append(test_IP+" ; "+"Unknown type")
     return New_DB
+
 def check_netmask(database):
+    #database types:
+    #0= DB consists of only 1 variable and can not be sorted
+    #1= 255.255.255.0
+    #2= 255.255.0.0
+    #3= 255.0.0.0
+    #4= 0.0.0.0
     if len(database) == 1:
         return 0
     tempa = len(database)/10+2
@@ -64,7 +71,7 @@ def download_existing_DB():
             filepath=find_file_locally(True)
             with open(filepath, "r") as f:
                 my_DB=f.readlines()
-            print(my_DB)
+        return(my_DB)
     else:
         #asks the user to migrate the database to the device using newly opened terminal window
         print("use an ftp or sftp connection to transfer the DataBase to this device")
