@@ -3,9 +3,6 @@ from time import time
 import csv
 import os
 from platform import system
-#test parsing
-import json
-import pingparsing
 
 def nory(usr_input):
     NORY=["Y","T","TAK","YES"]
@@ -13,46 +10,20 @@ def nory(usr_input):
         return True
     else: return False
 
-def test_parsing(My_IP):
-    splitIP = myIP.split(".")
-    fixedIP = splitIP[0]+"."+splitIP[1]+"."+splitIP[2]+"."
-    ping_parser = pingparsing.PingParsing()
-    transmitter = pingparsing.PingTransmitter()
-    for ip in range(0,255):
-        transmitter.destination = fixedIP+":"+ip
-        transmitter.count = 10
-        result = transmitter.ping()
-        print(json.dumps(ping_parser.parse(result).as_dict(), indent=4))
 
 def create_DB_by_scanning():
-    #find my Hostname
     My_hostname=gethostname()
-    # gets host ip and assigns it to variable
     myIP=gethostbyname(My_hostname)
-    #create a DataBase to be filled with connected IoT Devices
     New_DB ={myIP:"my device"}  
-    #assign_Devices(myIP)
-    test_parsing(My_IP)
-    return New_DB
+    mask_IP=(myIP.split('.')[1]+'.'+myIP.split('.')+'.')
+    for i in range(0,255,1):
+        test_IP=mask_IP+"{}".format(i)
+        if test_IP!=myIP:
+            out_test=os.command("ping -n {}".format(test_IP))
+            if out_test[-5:]!="again.":
+                New_DB.append(test_IP+" ; "+"Unknown type")
 
-def assign_Devices(myIP):
-    #convert ip to ip for iteration
-    splitIP = myIP.split(".")
-    fixedIP = splitIP[0]+"."+splitIP[1]+"."+splitIP[2]+"."
-    if system() == "Windows":
-        ping1 = "ping -n 1"
-    else:
-        ping1 = "ping -c 1"
-    #pings ip in range xxx.xxx.xxx.0-255
-    for ip in range (0,255):
-        addr = fixedIP + str(ip)
-        comm = ping1 + addr
-        response = os.popen(comm)
-        for line in response.readlines():
-            if(line.count("TTL")):
-                break
-            if (line.count("TTL")):
-                print (addr, "--> Live")
+
 
 def find_file_locally(is_txt):
     if is_txt==True:
