@@ -1,3 +1,6 @@
+from msvcrt import kbhit
+from operator import truediv
+from pickle import TRUE
 from socket import *
 from time import time
 import csv
@@ -41,18 +44,27 @@ def check_netmask(database):
     tempList = []
     tempKeyList = []
     tempKeys = []
+    gotmask=False
     for i in range(0,tempa):
         tempRandom = random.randrange(0,tempa)
-        if tempRandom in templist:
+        if tempRandom in tempList:
             i-=1
         else:
             tempList.append(tempRandom)
-    for j in templist:
+    for j in tempList:
         tempKeyList.append(database[j])
     for key in tempKeyList:
         tempKey = key.split(".")
         tempKeys.append(tempKey)
-
+    for k in range(3,0,-1):
+        for l in range(0,len(tempKeys),1):
+            if tempKeys[k][l]!=tempKeys[k][l+1]:
+                break
+            else:
+                gotmask=True
+                return 3-k
+        if gotmask==True: break
+    return 4
 
 
 def find_file_locally(is_txt):
