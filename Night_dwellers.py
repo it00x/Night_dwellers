@@ -16,31 +16,25 @@ def create_DB_by_scanning():
     myIP=gethostbyname(My_hostname)
     #create a DataBase to be filled with connected IoT Devices
     New_DB ={myIP:"my device"}
-    assign_Devices(My_hostname)
+    assign_Devices(myIP)
     return New_DB
 
-def assign_Devices(My_hostname):
-    port = 1000
-    sockets = socket(AF_INET,SOCK_STREAM)
-    print(sockets)
-    #sockets = socket.socket()
-    sockets.bind((My_hostname, port))
-    sockets.listen()
-    print(sockets)
-    try:
-        print("I am tryin")
-        while True:
-            print("dupa")
-            #(connected_socket,addr) = sockets.accept()
-            #print(sockets.accept())
-            socket.create_connection((str(My_hostname)+":"+str(port)),)
-            #New_DB.update({addr,connected_socket})
-            clientConnection.close()
-            print(a)
-    except:
-        print("error")
+def assign_Devices(myIP):
+    splitIP = myIP.split(".")
+    fixedIP = splitIP[0]+"."+splitIP[1]+"."+splitIP[2]+"."
+    for ip in range(1,11):
+        addr = fixedIP + str(ip)
+        if (scan_IP(addr)):
+            print (addr , "is live")
     pass
-
+def scan_IP(addr):
+    sockets = socket(AF_INET,SOCK_STREAM)
+    #socket.setdefaulttimeout(1)
+    result = sockets.connect_ex((addr,135))
+    if result == 0:
+        return 1
+    else:
+        return 0
 def find_file_locally(is_txt):
     if is_txt==True:
         print("choosing a .txt file")
