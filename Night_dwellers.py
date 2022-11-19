@@ -10,7 +10,6 @@ def nory(usr_input):
         return True
     else: return False
 
-
 def create_DB_by_scanning():
     My_hostname=gethostname()
     myIP=gethostbyname(My_hostname)
@@ -20,7 +19,7 @@ def create_DB_by_scanning():
         test_IP=mask_IP+"{}".format(i)
         if test_IP!=myIP:
             out_test=os.command("ping -n {}".format(test_IP))
-            if out_test[-5:]!="again.":
+            if out_test[-1]!=".":
                 New_DB.append(test_IP+" ; "+"Unknown type")
 
 
