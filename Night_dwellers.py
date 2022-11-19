@@ -16,6 +16,7 @@ def create_DB_by_scanning():
     #create a DataBase to be filled with connected IoT Devices
     New_DB ={myIP:"my device"}
     return New_DB
+
 def assign_Devices(My_hostname):
     #socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     #socket.bind((host, port))
@@ -26,13 +27,15 @@ def assign_Devices(My_hostname):
     #    New_DB.update({addr,connected_socket})
     pass
 
-
+def download_existing_DB():
+    pass
 
 def main():
     start_time = time()
     if(nory(input("is there an existing dataBase of you IoT devices in this network (Y/n)>>"))==True):
         pass #there is an existing data base
         #download a new DB
+        DB_of_IoT=download_existing_DB()
     else:
         #there is no DB
         # create new by scaning network
