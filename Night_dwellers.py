@@ -39,8 +39,19 @@ def check_netmask(database):
         return 0
     tempa = len(database)/10+2
     tempList = []
-    for i in range(0,tempa-1):
-        pass
+    tempKeyList = []
+    tempKeys = []
+    for i in range(0,tempa):
+        tempRandom = random.randrange(0,tempa)
+        if tempRandom in templist:
+            i-=1
+        else:
+            tempList.append(tempRandom)
+    for j in templist:
+        tempKeyList.append(database[j])
+    for key in tempKeyList:
+        tempKey = key.split(".")
+        tempKeys.append(tempKey)
 
 
 def find_file_locally(is_txt):
