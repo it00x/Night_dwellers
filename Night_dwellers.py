@@ -54,6 +54,7 @@ def check_netmask(database):
         tempKeys.append(tempKey)
 
 
+
 def find_file_locally(is_txt):
     #checking file type
     if is_txt==True:
