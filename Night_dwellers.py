@@ -47,11 +47,11 @@ def check_netmask(database):
     gotmask=False
     for i in range(0,tempa):
         tempRandom = random.randrange(0,tempa)
-        if tempRandom in templist:
+        if tempRandom in tempList:
             i-=1
         else:
             tempList.append(tempRandom)
-    for j in templist:
+    for j in tempList:
         tempKeyList.append(database[j])
     for key in tempKeyList:
         tempKey = key.split(".")
