@@ -26,6 +26,7 @@ def assign_Devices(My_hostname):
     #    connected_socket, addr = socket.accept()
     #    New_DB.update({addr,connected_socket})
     pass
+    pass
 
 def download_existing_DB():
     pass
