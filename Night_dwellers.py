@@ -11,12 +11,17 @@ def nory(usr_input):
     else: return False
 
 def create_DB_by_scanning():
+    #getting host nape and assigning it to variable to get ip
     My_hostname=gethostname()
     myIP=gethostbyname(My_hostname)
+    #creating database to store devices and their IP
     New_DB ={myIP:"my device"}  
+    #getting internet mask of given IP
     mask_IP=(myIP.split('.')[1]+'.'+myIP.split('.')+'.')
+    #Searching for devices in the network
     for i in range(0,255,1):
         test_IP=mask_IP+"{}".format(i)
+        #if internet mask isn't equal to IP append device to database
         if test_IP!=myIP:
             out_test=os.command("ping -n {}".format(test_IP))
             if out_test[-1]!=".":
@@ -25,6 +30,7 @@ def create_DB_by_scanning():
 
 
 def find_file_locally(is_txt):
+    #checking file type
     if is_txt==True:
         print("choosing a .txt file")
         filepath=str(input("input file path/name if the path is in the project folder>>"))
