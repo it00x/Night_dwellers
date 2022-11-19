@@ -1,2 +1,4 @@
 # Night_dwellers
-#this gonna be FUUUUUN
+IoT project
+connection optimisation
+[ ] nauczyc Kube jak działa github
