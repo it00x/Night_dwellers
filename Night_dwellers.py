@@ -1,6 +1,8 @@
 from socket import *
 from time import time
 import csv
+import os
+from platform import system
 
 def nory(usr_input):
     NORY=["Y","T","TAK","YES"]
@@ -22,22 +24,20 @@ def create_DB_by_scanning():
 def assign_Devices(myIP):
     splitIP = myIP.split(".")
     fixedIP = splitIP[0]+"."+splitIP[1]+"."+splitIP[2]+"."
-    for ip in range(0,255):
-        print(ip)
-        addr = fixedIP + str(ip)
-        if (scan_IP(addr)):
-            print(addr+" is live")
-    pass
-
-def scan_IP(addr):
-    sockets = socket(AF_INET,SOCK_STREAM)
-    sockets.settimeout(0.5)
-    result = sockets.connect_ex((addr,135))
-    if result == 0:
-        return 1
+    scan_IP(fixedIP)
+    if system() == "Windows":
+        ping1 = "ping -n 1"
     else:
-        return 0
-    pass
+        ping1 = "ping -c 1"
+    for ip in range (0,255):
+        addr = fixedIP + str(ip)
+        comm = ping1 + addr
+        response = os.popen(comm)
+        for line in response.readlines():
+            if(line.count("TTL")):
+                break
+            if (line.count("TTL")):
+                print (addr, "--> Live")
 
 def find_file_locally(is_txt):
     if is_txt==True:
