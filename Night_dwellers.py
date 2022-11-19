@@ -1,5 +1,5 @@
 import nmap
-nmScan = nmap.PortScanner()
+nm = nmap.PortScanner()
 
 def main():
     myIP = nmScan.all_hosts()
