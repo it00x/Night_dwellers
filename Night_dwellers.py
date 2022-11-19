@@ -39,8 +39,6 @@ def assign_Devices(myIP):
     #convert ip to ip for iteration
     splitIP = myIP.split(".")
     fixedIP = splitIP[0]+"."+splitIP[1]+"."+splitIP[2]+"."
-    scan_IP(fixedIP)
-    #check os
     if system() == "Windows":
         ping1 = "ping -n 1"
     else:
