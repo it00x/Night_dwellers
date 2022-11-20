@@ -125,6 +125,7 @@ def download_existing_DB():
         download_existing_DB()
 
 def main():
+    #checks starting time to measure execution time
     start_time = time()
     if(nory(input("is there an existing dataBase of you IoT devices in this network (Y/n)>>"))==True):
         #there is an existing data base
