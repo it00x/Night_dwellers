@@ -18,16 +18,20 @@ def redirecting(database, DB_TYPE):
     pass
 
 def type_1_sort(database):
-    pass
+    New_database=[]
+    return redirecting(New_database,0)
 
 def type_2_sort(database):
-    pass
+    New_database=[]
+    return type_1_sort(New_database)
 
 def type_3_sort(database):
-    pass
+    New_database=[]
+    return type_2_sort(New_database)
 
 def type_4_sort(database):
-    pass
+    New_database=[]
+    return type_3_sort(New_database)
 
 def create_DB_by_scanning():
     #getting host nape and assigning it to variable to get ip
