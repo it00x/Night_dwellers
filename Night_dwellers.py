@@ -1,7 +1,3 @@
-from msvcrt import kbhit
-from operator import truediv
-from pickle import TRUE
-from socket import *
 from time import time
 import csv
 import os
@@ -16,7 +12,7 @@ def nory(usr_input):
     else: return False
     
 
-def redirecting(database, DB_TYPE):
+def sorting_of_DB(database, DB_TYPE):
     #checks datatype and acts accordingly
     if DB_TYPE==0: return database
     else:
@@ -85,6 +81,13 @@ def check_netmask(database):
         if gotmask==True: break
     return 4
 
+def delete_expandable(database):
+    netmask_type=check_netmask(database)
+    sorted_database=sorting_of_DB(database,netmask_type)
+    for items in range(0,len(sorted_database)-1,1):
+        if sorted_database[items]==sorted_database[items+1]:
+            del sorted_database[items]
+    return sorted_database
 
 def find_file_locally(is_txt):
     #checking file type
@@ -135,7 +138,7 @@ def main():
         #there is no DB
         # create new by scaning network
         DB_of_IoT=create_DB_by_scanning()
-    print(DB_of_IoT)
+    DB_of_IoT=delete_expandable(DB_of_IoT)
     # writes code execution time
     print((time()-start_time))
 
