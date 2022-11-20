@@ -13,25 +13,14 @@ def nory(usr_input):
     if usr_input in NORY:
         return True
     else: return False
+    
 
 def redirecting(database, DB_TYPE):
-    pass
-
-def type_1_sort(database):
-    New_database=[]
-    return redirecting(New_database,0)
-
-def type_2_sort(database):
-    New_database=[]
-    return type_1_sort(New_database)
-
-def type_3_sort(database):
-    New_database=[]
-    return type_2_sort(New_database)
-
-def type_4_sort(database):
-    New_database=[]
-    return type_3_sort(New_database)
+    if DB_TYPE==0: return database
+    else:
+        for iterable_ in range(DB_TYPE,0,-1):
+            N_DB=sorted(database.items().split('.')[-iterable_],key=lambda x:x[1])
+    return N_DB
 
 def create_DB_by_scanning():
     #getting host nape and assigning it to variable to get ip
