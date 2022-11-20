@@ -7,8 +7,8 @@ import random
 
 def nory(usr_input):
     #checks if user enters an affirmative answer
-    NORY=["Y","T","TAK","YES"]
-    if usr_input in NORY:
+    NORY=["Y","T","TAK","YES","YE","TA"]
+    if usr_input.upper() in NORY:
         return True
     else: return False
     
