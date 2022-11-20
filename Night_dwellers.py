@@ -34,7 +34,7 @@ def type_4_sort(database):
     return type_3_sort(New_database)
 
 def create_DB_by_scanning():
-    #getting host nape and assigning it to variable to get ip
+    #getting host name and assigning it to variable to get ip
     My_hostname=gethostname()
     myIP=gethostbyname(My_hostname)
     #creating database to store devices and their IP
