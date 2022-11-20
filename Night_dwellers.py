@@ -9,6 +9,7 @@ from platform import system
 import random
 
 def nory(usr_input):
+    #checks if user enters an affirmative answer
     NORY=["Y","T","TAK","YES"]
     if usr_input in NORY:
         return True
@@ -16,8 +17,10 @@ def nory(usr_input):
     
 
 def redirecting(database, DB_TYPE):
+    #checks datatype and acts accordingly
     if DB_TYPE==0: return database
     else:
+        #iterates over types of databases and sorts IPs
         for iterable_ in range(DB_TYPE,0,-1):
             N_DB=sorted(database.items().split('.')[-iterable_],key=lambda x:x[1])
     return N_DB
