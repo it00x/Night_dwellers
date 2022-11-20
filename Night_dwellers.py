@@ -5,6 +5,108 @@ import os
 from platform import system
 import random
 
+#Device Classes
+#test 10 device classes with their respective configuration options allowing for later expansion
+class AC_UNIT:
+    def __init__(self,FanSpeed,OnOff,TemperatureSetting):
+        #fan speed is responsible for fan blades rotation
+        self.FanSpeed = FanSpeed
+        #onoff boolean taking care of state of device
+        self.OnOff = OnOff
+        #parameter allowing controlling whether user wants colder or warmer temps in their room
+        self.TempereatureSetting = TemperatureSetting
+
+class COFFEE_MAKER:
+    def __init__(self,Cook,TemperatureControl,OnOff):
+        #adjusting cooking modes
+        self.Cook = Cook
+        #adjusting target temperature
+        self.TemperatureControl = TemperatureControl
+        #controls power state of the device
+        self.OnOff = OnOff
+
+class DISHWASHER:
+    def __init__(self,OnOff,RunCycle,StartStop):
+        #controls power state of the device
+        self.OnOff = OnOff
+        #controls various modes that can be chosen
+        self.RunCycly = RunCycle
+        #controls starting and stopping dishwasher
+        self.StartStop = StartStop
+
+class DOOR:
+    def __init__(self,LockUnlock,OpenClose):
+        #controls lock state of the door
+        self.LockUnlock = LockUnlock
+        #controls opening and closing of the doors
+        self.OpenClose = OpenClose
+
+class GARAGE:
+    def __init__(self,LockUnlock,OpenClose):
+        #controls lock state of the door
+        self.LockUnlock = LockUnlock
+        #controls opening and closing of the door
+        self.OpenClose = OpenClose
+
+class HOOD:
+    def __init__(self,Brightness,FanSpeed,OnOff):
+        #controls brightness of the light in the hood
+        self.Brightness = Brightness
+        #controls fan speed of the hood
+        self.FanSpeed = FanSpeed
+        #controls power state of the device
+        self.OnOff = OnOff
+
+class LIGHT:
+    def __init__(self,ColorSetting,Brightness,OnOff):
+        #ColorSetting sets colour of the lights if possible
+        self.ColorSetting = ColorSetting
+        #controls the brightness of the lights
+        self.Brightness = Brightness
+        #Controls power state of the device
+        self.OnOff = OnOff
+
+class MICROWAVE:
+    def __init__(self,Cook,Timer,StartStop):
+        #controls cooking mode
+        self.Cook = Cook
+        #controls timer of the microwave
+        self.Timer = Timer
+        #controls starting and stopping of the device
+        self.StartStop = StartStop
+
+class MOWER:
+    def __init__(self,Dock,EnergyStorage,Locator,OnOff,RunCycle,StartStop):
+        #checks if device is docked
+        self.Dock = Dock
+        #defines remaining battery power
+        self.EnergyStorage = EnergyStorage
+        #responsible for handling location of the device
+        self.Locator = Locator
+        #controls power state of the device
+        self.OnOff = OnOff
+        #controls modes of the mower
+        self.RunCycle = RunCycle
+        #control starting and stopping the mower
+        self.StartStop = StartStop
+
+class SPEAKER:
+    def __init__(self,AppSelector,InputSelector,MediaState,OnOff,TransportControl,Volume):
+        #select applications
+        self.AppSelector = AppSelector
+        #select input settings
+        self.InputSelector = InputSelector
+        #handling currently playing stuff, portability
+        self.MediaState = MediaState
+        #handling device power state
+        self.OnOff = OnOff
+        #controls media playback
+        self.TransportControl = TransportControl
+        #responsible for handling volume setting
+        self.Volume = Volume
+
+
+
 def nory(usr_input):
     #checks if user enters an affirmative answer
     NORY=["Y","T","TAK","YES","YE","TA"]
