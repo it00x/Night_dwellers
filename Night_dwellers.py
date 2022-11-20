@@ -7,11 +7,27 @@ import csv
 import os
 from platform import system
 import random
+
 def nory(usr_input):
     NORY=["Y","T","TAK","YES"]
     if usr_input in NORY:
         return True
     else: return False
+
+def redirecting(database, DB_TYPE):
+    pass
+
+def type_1_sort(database):
+    pass
+
+def type_2_sort(database):
+    pass
+
+def type_3_sort(database):
+    pass
+
+def type_4_sort(database):
+    pass
 
 def create_DB_by_scanning():
     #getting host nape and assigning it to variable to get ip
